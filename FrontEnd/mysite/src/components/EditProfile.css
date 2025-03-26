@@ -1,0 +1,45 @@
+.edit-profile-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit-profile-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.edit-profile-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-profile-container input,
+.edit-profile-container button {
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.edit-profile-container button {
+  background-color: #646cff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-profile-container button:hover {
+  background-color: #535bf2;
+}
+
+.edit-profile-container p {
+  text-align: center;
+  color: red;
+}

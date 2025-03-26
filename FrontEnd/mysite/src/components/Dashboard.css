@@ -1,0 +1,56 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  padding-top: 4rem; /* Add padding to account for the fixed global header */
+}
+
+.dashboard-main {
+  flex: 1;
+  padding: 2rem;
+  background-color: #ffffff;
+  margin: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.dashboard-main h2 {
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.dashboard-main p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-main {
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+
+  .dashboard-main h2 {
+    font-size: 1.5rem;
+  }
+
+  .dashboard-main p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-main h2 {
+    font-size: 1.2rem;
+  }
+
+  .dashboard-main p {
+    font-size: 0.9rem;
+  }
+}
