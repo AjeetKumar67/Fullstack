@@ -1,18 +1,21 @@
+import { Link, useNavigate } from 'react-router-dom';
 import '../css/DashboardHeader.css';
 
 function DashboardHeader() {
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     localStorage.removeItem('accessToken');
-    window.location.href = '/login';
+    navigate('/login');
   };
 
   return (
     <header className="dashboard-header-container">
       <h1>Dashboard</h1>
       <nav>
-        <a href="/dashboard">Home</a>
-        <a href="/dashboard/profile">Profile</a>
-        <a href="/dashboard/settings">Settings</a>
+        <Link to="/dashboard">Home</Link>
+        <Link to="/dashboard/profile">Profile</Link>
+        <Link to="/dashboard/settings">Settings</Link>
         <button className="logout-link" onClick={handleLogout}>Logout</button>
       </nav>
     </header>

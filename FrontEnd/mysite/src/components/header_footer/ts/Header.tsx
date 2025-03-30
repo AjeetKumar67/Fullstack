@@ -1,10 +1,13 @@
 import { NavLink } from 'react-router-dom';
+import { siteLogo } from '../../../utils/backgroundImages';
 import '../css/Header.css';
 
 function Header() {
   return (
     <header className="header-container">
-      <h1>MySite</h1>
+      <div className="logo-container">
+        <img src={siteLogo} alt="Ajeet Logo" className="site-logo" />
+      </div>
       <nav>
         <NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''}>
           Home
