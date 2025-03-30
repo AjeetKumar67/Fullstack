@@ -1,0 +1,24 @@
+DEBUG 2025-03-29 07:26:39,952 middleware 27859 137451244881472 Request Path: /api/register/
+DEBUG 2025-03-29 07:26:39,952 middleware 27859 137451244881472 Request Method: POST
+DEBUG 2025-03-29 07:26:39,952 middleware 27859 137451244881472 Request Headers: {'Content-Length': '133', 'Content-Type': 'application/json', 'User-Agent': 'PostmanRuntime/7.43.2', 'Accept': '*/*', 'Postman-Token': '35e29521-8f04-4127-aa4e-b4aba064c4cf', 'Host': '127.0.0.1:8000', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive'}
+DEBUG 2025-03-29 07:26:40,029 middleware 27859 137451244881472 Response Time: 0.08 seconds
+DEBUG 2025-03-29 07:26:40,029 middleware 27859 137451244881472 Response Status: 400
+WARNING 2025-03-29 07:26:40,046 log 27859 137451244881472 Bad Request: /api/register/
+DEBUG 2025-03-29 07:27:11,086 middleware 27859 137451244881472 Request Path: /api/register/
+DEBUG 2025-03-29 07:27:11,087 middleware 27859 137451244881472 Request Method: POST
+DEBUG 2025-03-29 07:27:11,087 middleware 27859 137451244881472 Request Headers: {'Content-Length': '109', 'Content-Type': 'application/json', 'User-Agent': 'PostmanRuntime/7.43.2', 'Accept': '*/*', 'Postman-Token': '44c9cd3e-a482-46f4-a131-4d29b05a0bea', 'Host': '127.0.0.1:8000', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive'}
+DEBUG 2025-03-29 07:27:11,090 middleware 27859 137451244881472 Response Time: 0.00 seconds
+DEBUG 2025-03-29 07:27:11,090 middleware 27859 137451244881472 Response Status: 400
+WARNING 2025-03-29 07:27:11,096 log 27859 137451244881472 Bad Request: /api/register/
+DEBUG 2025-03-29 07:29:22,293 middleware 29895 134860695930432 Request Path: /api/register/
+DEBUG 2025-03-29 07:29:22,293 middleware 29895 134860695930432 Request Method: POST
+DEBUG 2025-03-29 07:29:22,293 middleware 29895 134860695930432 Request Headers: {'Content-Length': '109', 'Content-Type': 'application/json', 'User-Agent': 'PostmanRuntime/7.43.2', 'Accept': '*/*', 'Postman-Token': '4a885480-0dc2-47e2-802b-1852fbef5089', 'Host': '127.0.0.1:8000', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive'}
+DEBUG 2025-03-29 07:29:22,343 middleware 29895 134860695930432 Response Time: 0.05 seconds
+DEBUG 2025-03-29 07:29:22,343 middleware 29895 134860695930432 Response Status: 400
+WARNING 2025-03-29 07:29:22,361 log 29895 134860695930432 Bad Request: /api/register/
+DEBUG 2025-03-29 07:29:23,513 middleware 29895 134860695930432 Request Path: /api/register/
+DEBUG 2025-03-29 07:29:23,513 middleware 29895 134860695930432 Request Method: POST
+DEBUG 2025-03-29 07:29:23,513 middleware 29895 134860695930432 Request Headers: {'Content-Length': '109', 'Content-Type': 'application/json', 'User-Agent': 'PostmanRuntime/7.43.2', 'Accept': '*/*', 'Postman-Token': 'c2fa04ae-9fc0-4f21-9aa0-0ae582076793', 'Host': '127.0.0.1:8000', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive'}
+DEBUG 2025-03-29 07:29:23,516 middleware 29895 134860695930432 Response Time: 0.00 seconds
+DEBUG 2025-03-29 07:29:23,516 middleware 29895 134860695930432 Response Status: 400
+WARNING 2025-03-29 07:29:23,522 log 29895 134860695930432 Bad Request: /api/register/

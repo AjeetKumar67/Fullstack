@@ -1,0 +1,79 @@
+.dashboard-wrapper {
+  min-height: 100vh;
+  padding-top: 80px; /* Add padding to account for fixed header */
+  background-color: #f4f4f9;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  height: 100vh;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  margin-top: 0; /* Remove margin-top since we're using padding-top on wrapper */
+}
+
+.dashboard-main {
+  flex: 1;
+  padding: 2rem;
+  background-color: #ffffff;
+  margin: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.dashboard-main h2 {
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.dashboard-main p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.dashboard-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.dashboard-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-main {
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+
+  .dashboard-main h2 {
+    font-size: 1.5rem;
+  }
+
+  .dashboard-main p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-main h2 {
+    font-size: 1.2rem;
+  }
+
+  .dashboard-main p {
+    font-size: 0.9rem;
+  }
+}

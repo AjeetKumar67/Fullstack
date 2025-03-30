@@ -1,56 +1,43 @@
-import { useState } from 'react';
-import Header from './components/Header';
-import DashboardHeader from './components/DashboardHeader';
-import Register from './components/Register';
-import Login from './components/Login';
-import Dashboard from './components/Dashboard';
-import Profile from './components/Profile';
-import EditProfile from './components/EditProfile';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import Header from './components/header_footer/ts/Header';
+import Home from './components/pages/ts/Home';
+import About from './components/pages/ts/About';
+import Career from './components/pages/ts/Career';
+import Contact from './components/pages/ts/Contact';
+import Login from './components/user/ts/Login';
+import Register from './components/user/ts/Register';
+import Dashboard from './components/dashboard/ts/Dashboard';
 import './App.css';
 
-function App() {
-  const [view, setView] = useState<'register' | 'login' | 'dashboard' | 'profile' | 'editProfile'>('register');
-
-  const handleLogin = () => {
-    setView('dashboard');
-  };
-
-  const navigateToRegister = () => {
-    setView('register');
-  };
-
-  const navigateToLogin = () => {
-    setView('login');
-  };
-
-  const navigateToProfile = () => {
-    setView('profile');
-  };
-
-  const navigateToEditProfile = () => {
-    setView('editProfile');
-  };
-
-  const handleProfileUpdated = () => {
-    setView('profile');
-  };
+function AppContent() {
+  const location = useLocation();
+  const isDashboard = location.pathname.startsWith('/dashboard');
 
   return (
     <div className="app-container">
-      {view === 'dashboard' || view === 'profile' || view === 'editProfile' ? (
-        <DashboardHeader onProfileClick={navigateToProfile} />
-      ) : (
-        <Header />
-      )}
+      {!isDashboard && <Header />}
       <div className="content">
-        {view === 'register' && <Register onNavigateToLogin={navigateToLogin} />}
-        {view === 'login' && <Login onNavigateToRegister={navigateToRegister} onLogin={handleLogin} />}
-        {view === 'dashboard' && <Dashboard />}
-        {view === 'profile' && <Profile onEditProfile={navigateToEditProfile} />}
-        {view === 'editProfile' && <EditProfile onProfileUpdated={handleProfileUpdated} />}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/career" element={<Career />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login onLogin={() => (window.location.href = '/dashboard')} />} />
+          <Route path="/register" element={<Register onNavigateToLogin={() => (window.location.href = '/login')} />} />
+          <Route path="/dashboard/*" element={<Dashboard />} />
+        </Routes>
       </div>
     </div>
   );
 }
 
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
+  );
+}
+
 export default App;
+
