@@ -10,6 +10,7 @@ function Home() {
 
   return (
     <div className="home-container">
+      <h1 className="page-title">Home Page</h1>
       <div className={`home-content ${isVisible ? 'visible' : ''}`}>
         <h1>Welcome to Our Website</h1>
         <p className="tagline">Building Tomorrow's Solutions Today</p>

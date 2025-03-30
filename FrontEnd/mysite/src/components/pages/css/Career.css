@@ -3,6 +3,8 @@
   min-height: 100vh;
   background-color: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
+  margin-top: 4.5cm;
+
 }
 
 .career-content {

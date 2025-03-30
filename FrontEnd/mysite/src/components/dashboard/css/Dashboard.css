@@ -1,20 +1,15 @@
 .dashboard-wrapper {
-  min-height: 100vh;
-  padding-top: 80px; /* Add padding to account for fixed header */
+  min-height: calc(100vh - 64px); /* Subtract header height */
+  padding-top: 64px; /* Match header height */
   background-color: #f4f4f9;
 }
 
 .dashboard-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  height: 100vh;
-  font-family: 'Arial', sans-serif;
+  padding: 2rem;
+  height: auto; /* Remove fixed height */
   background-color: #f4f4f9;
-  margin-top: 0; /* Remove margin-top since we're using padding-top on wrapper */
 }
 
 .dashboard-main {
@@ -28,7 +23,7 @@
 }
 
 .dashboard-main h2 {
-  color: #333;
+  color:pink;
   font-size: 2rem;
   margin-bottom: 1rem;
 }
@@ -43,6 +38,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
+  padding-bottom: 2rem; /* Add bottom padding */
 }
 
 .dashboard-card {

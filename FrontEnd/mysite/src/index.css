@@ -29,8 +29,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
   position: relative;
-  background-color: #242424; /* Fallback color */
-  background-image: url('/images/bg1.jpg');
+  background-color: #cec9c9; /* Fallback color */
+  background-image: url('./utils/images/531880.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -40,23 +40,23 @@ body {
 
 @keyframes slideBackground {
   0%, 20% {
-    background-image: url('/images/bg1.jpg');
+    background-image: url('./utils/images/531880.jpg');
     opacity: 1;
   }
   25%, 45% {
-    background-image: url('/images/bg2.jpg');
+    background-image: url('./utils/images/531880.jpg');
     opacity: 1;
   }
   50%, 70% {
-    background-image: url('/images/bg3.jpg');
+    background-image: url('./utils/images/531880.jpg');
     opacity: 1;
   }
   75%, 95% {
-    background-image: url('/images/bg4.jpg');
+    background-image: url('./utils/images/531880.jpg');
     opacity: 1;
   }
   100% {
-    background-image: url('/images/bg1.jpg');
+    background-image: url('./utils/images/531880.jpg');
     opacity: 1;
   }
 }

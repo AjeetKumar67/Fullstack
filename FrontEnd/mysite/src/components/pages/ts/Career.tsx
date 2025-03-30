@@ -3,6 +3,7 @@ import '../css/Career.css';
 function Career() {
   return (
     <div className="career-container">
+      <h1 className="page-title">Career Page</h1>
       <div className="career-content">
         <h2>Career Opportunities</h2>
         
