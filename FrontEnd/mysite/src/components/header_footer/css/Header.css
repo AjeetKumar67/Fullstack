@@ -20,11 +20,13 @@
 }
 
 .site-logo {
-  height: 40px;
-  width: 40px; /* Make it square */
-  border-radius: 50%; /* Make it circular */
-  object-fit: cover; /* Ensure image covers the area nicely */
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  object-fit: cover;
   margin-right: 1rem;
+  border: 2px solid white; /* Add white border */
+  box-shadow: 0 0 4px rgba(0,0,0,0.2); /* Add subtle shadow */
 }
 
 .header-container h1 {

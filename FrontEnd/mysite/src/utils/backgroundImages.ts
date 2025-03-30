@@ -5,6 +5,6 @@ export const backgroundImages = [
   '/images/bg4.jpg',
 ];
 
-export const siteLogo = '/images/Ajeet_Photo.jpeg';
+export const siteLogo = './utils/images/Ajeet_Photo.jpeg';
 
 export const siteIcon = '/src/utils/images/icon.png';
