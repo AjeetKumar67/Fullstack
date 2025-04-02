@@ -1,3 +1,83 @@
+For Run Applications  
+`uvicorn app.main:app --reload --port 8001`
 
-For Run Applications
-uvicorn app.main:app --reload
+# User Management Endpoints
+
+1. **Register**  
+   **URL**: `POST /api/v1/users/register`  
+   **Body**:  
+   ```json
+   {
+       "username": "johndoe",
+       "email": "johndoe@example.com",
+       "full_name": "John Doe",
+       "photo": "http://example.com/photo.jpg",
+       "dob": "1990-01-01",
+       "mobile_number": "1234567890",
+       "address": "123 Main St, City, Country",
+       "password": "securepassword"
+   }
+   ```
+
+2. **Login**  
+   **URL**: `POST /api/v1/users/login`  
+   **Body**:  
+   ```json
+   {
+       "username": "johndoe",
+       "password": "securepassword"
+   }
+   ```
+
+3. **Update User**  
+   **URL**: `PUT /api/v1/users/update`  
+   **Body**:  
+   ```json
+   {
+       "id": 1,
+       "username": "newusername",
+       "email": "newemail@example.com",
+       "full_name": "New Name",
+       "photo": "http://example.com/newphoto.jpg",
+       "dob": "1991-01-01",
+       "mobile_number": "9876543210",
+       "address": "456 New St, New City, Country",
+       "password": "newpassword"
+   }
+   ```
+
+4. **Get All Users**  
+   **URL**: `GET /api/v1/users/`  
+   **Body**: None  
+
+5. **Get User by ID**  
+   **URL**: `GET /api/v1/users/{user_id}`  
+   **Body**: None  
+
+6. **Delete User**  
+   **URL**: `DELETE /api/v1/users/{user_id}`  
+   **Body**: None  
+
+7. **Verify Email**  
+   **URL**: `POST /api/v1/users/verify-email`  
+   **Body**:  
+   ```json
+   {
+       "email": "johndoe@example.com",
+       "otp": "123456"
+   }
+   ```
+
+8. **Update Role**  
+   **URL**: `PUT /api/v1/users/update-role`  
+   **Body**:  
+   ```json
+   {
+       "user_id": 1,
+       "role": "admin"
+   }
+   ```
+
+9. **Get Login Activities**  
+   **URL**: `GET /api/v1/users/login-activities?user_id=1`  
+   **Body**: None

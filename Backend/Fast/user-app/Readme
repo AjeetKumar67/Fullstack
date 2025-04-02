@@ -1,0 +1,17 @@
+user-app
+├── app
+│   ├── __init__.py
+│   ├── database.py
+│   ├── main.py
+│   ├── models
+│   │   ├── __init__.py
+│   │   └── user.py
+│   ├── routes
+│   │   ├── __init__.py
+│   │   └── user.py
+│   └── schemas
+│       ├── __init__.py
+│       └── user.py
+├── .gitignore
+├── Readme
+└── requirements.txt
