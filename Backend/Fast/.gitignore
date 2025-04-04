@@ -23,3 +23,14 @@ Thumbs.db
 
 # Uvicorn reload artifacts
 *.pid
+
+# Ensure requirements.txt is not excluded
+!/item/requirements.txt
+
+# Database files
+*.db
+*.sql
+*.sqlite
+*.sqlite3
+*.db-journal
+*.dump

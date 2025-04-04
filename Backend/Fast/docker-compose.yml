@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  user-app:
+    build:
+      context: ./user-app
+    ports:
+      - "8001:8001"
+    env_file:
+      - ./user-app/.env
+    volumes:
+      - ./user-app:/app
+      - user-app-data:/data  # Use named volume for user-app data
+    environment:
+      - PYTHONPATH=/app
+
+  item-app:
+    build:
+      context: ./item
+    ports:
+      - "8002:8002"
+    env_file:
+      - ./item/.env
+    volumes:
+      - ./item  # Adjusted volume mapping
+      - item-app-data:/data  # Use named volume for item-app data
+    environment:
+      - PYTHONPATH=/data  # Adjusted PYTHONPATH
+
+volumes:
+  user-app-data:
+  item-app-data:
