@@ -2,8 +2,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-# Use SQLite as the database
-SQLALCHEMY_DATABASE_URL = "sqlite:///./item_app.db"
+# Centralized database configuration
+SQLALCHEMY_DATABASE_URL = "sqlite:///./order.db"  # Shared database named 'Fast'
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}

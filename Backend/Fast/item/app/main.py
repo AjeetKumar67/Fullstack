@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from .routes import item  # Use relative import
-from .database import engine, create_database  # Use relative import
-from .models import item as item_model  # Use relative import
+from app.routes import item
+from app.database import engine, create_database
+from app.models import item as item_model
 
 # Ensure the database is created
 create_database()

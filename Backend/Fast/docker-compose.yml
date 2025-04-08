@@ -10,7 +10,7 @@ services:
       - ./user-app/.env
     volumes:
       - ./user-app:/app
-      - user-app-data:/data  # Use named volume for user-app data
+      - ./Fast.db:/data/Fast.db  # Shared database file
     environment:
       - PYTHONPATH=/app
 
@@ -22,11 +22,25 @@ services:
     env_file:
       - ./item/.env
     volumes:
-      - ./item  # Adjusted volume mapping
-      - item-app-data:/data  # Use named volume for item-app data
+      - ./item:/app  # Ensure the entire item directory is mapped to /app
+      - ./Fast.db:/data/Fast.db  # Shared database file
     environment:
-      - PYTHONPATH=/data  # Adjusted PYTHONPATH
+      - PYTHONPATH=/app
+
+  order-app:
+    build:
+      context: ./order
+    ports:
+      - "8003:8003"
+    env_file:
+      - ./order/.env
+    volumes:
+      - ./order:/app
+      - ./Fast.db:/data/Fast.db  # Shared database file
+    environment:
+      - PYTHONPATH=/app
 
 volumes:
   user-app-data:
   item-app-data:
+  order-app-data:  # Shared volume for the database

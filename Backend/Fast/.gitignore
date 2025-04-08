@@ -34,3 +34,5 @@ Thumbs.db
 *.sqlite3
 *.db-journal
 *.dump
+
+local-compose.yml

@@ -22,7 +22,7 @@ class UserResponse(UserBase):
     id: int
 
     class Config:
-        orm_mode = True  # Enables ORM mode for Pydantic models to work with SQLAlchemy models
+        from_attributes = True  # Updated for Pydantic v2
 
 class UserUpdate(UserBase):
     password: str = None  # Password is optional for updates
@@ -42,4 +42,4 @@ class LoginActivityResponse(BaseModel):
     ip_address: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True  # Updated for Pydantic v2
