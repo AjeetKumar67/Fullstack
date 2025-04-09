@@ -43,3 +43,11 @@ class LoginActivityResponse(BaseModel):
 
     class Config:
         from_attributes = True  # Updated for Pydantic v2
+
+class ResetPasswordRequest(BaseModel):
+    email: EmailStr
+
+class ResetPasswordConfirm(BaseModel):
+    email: EmailStr
+    reset_token: str
+    new_password: str

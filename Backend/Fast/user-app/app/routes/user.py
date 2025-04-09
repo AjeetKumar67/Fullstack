@@ -6,6 +6,11 @@ from app.models.user import User, LoginActivity
 from app.schemas.user import UserCreate, UserResponse, UserLogin, UserUpdate, OTPVerification, RoleUpdate, LoginActivityResponse
 from passlib.context import CryptContext
 import random
+from jose import JWTError, jwt
+from datetime import datetime, timedelta
+from fastapi.security import OAuth2PasswordRequestForm
+from app.schemas.user import UserLogin, ResetPasswordRequest, ResetPasswordConfirm
+from email_validator import validate_email, EmailNotValidError
 
 router = APIRouter(
     prefix="/users",
@@ -13,6 +18,16 @@ router = APIRouter(
 )
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+SECRET_KEY = "your_secret_key"
+ALGORITHM = "HS256"
+ACCESS_TOKEN_EXPIRE_MINUTES = 30
+
+def create_access_token(data: dict):
+    to_encode = data.copy()
+    expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    to_encode.update({"exp": expire})
+    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
 @router.post("/register", response_model=UserResponse)
 def register_user(user: UserCreate, db: Session = Depends(get_db)):
@@ -34,17 +49,12 @@ def register_user(user: UserCreate, db: Session = Depends(get_db)):
     return db_user
 
 @router.post("/login")
-def login_user(user: UserLogin, request: Request, db: Session = Depends(get_db)):
-    db_user = db.query(User).filter(User.username == user.username).first()
-    if not db_user or not pwd_context.verify(user.password, db_user.hashed_password):
+def login_user(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
+    db_user = db.query(User).filter(User.username == form_data.username).first()
+    if not db_user or not pwd_context.verify(form_data.password, db_user.hashed_password):
         raise HTTPException(status_code=400, detail="Invalid username or password")
-    
-    # Track login activity
-    ip_address = request.client.host
-    login_activity = LoginActivity(user_id=db_user.id, ip_address=ip_address)
-    db.add(login_activity)
-    db.commit()
-    return {"message": "Login successful"}
+    access_token = create_access_token(data={"sub": db_user.username})
+    return {"access_token": access_token, "token_type": "bearer"}
 
 @router.put("/update", response_model=UserResponse)
 def update_user(user_update: UserUpdate, db: Session = Depends(get_db)):
@@ -115,3 +125,27 @@ def update_role(role_update: RoleUpdate, db: Session = Depends(get_db)):
 @router.get("/login-activities", response_model=List[LoginActivityResponse])
 def get_login_activities(user_id: int, db: Session = Depends(get_db)):
     return db.query(LoginActivity).filter(LoginActivity.user_id == user_id).all()
+
+@router.post("/reset-password-request")
+def reset_password_request(email: str, db: Session = Depends(get_db)):
+    try:
+        validate_email(email)
+    except EmailNotValidError:
+        raise HTTPException(status_code=400, detail="Invalid email address")
+    db_user = db.query(User).filter(User.email == email).first()
+    if not db_user:
+        raise HTTPException(status_code=404, detail="User not found")
+    # Simulate sending a reset token (e.g., via email)
+    reset_token = "reset-token-placeholder"  # Replace with actual token generation logic
+    return {"message": "Password reset token sent", "reset_token": reset_token}
+
+@router.post("/reset-password-confirm")
+def reset_password_confirm(data: ResetPasswordConfirm, db: Session = Depends(get_db)):
+    db_user = db.query(User).filter(User.email == data.email).first()
+    if not db_user:
+        raise HTTPException(status_code=404, detail="User not found")
+    if data.reset_token != "reset-token-placeholder":  # Replace with actual token validation
+        raise HTTPException(status_code=400, detail="Invalid reset token")
+    db_user.hashed_password = pwd_context.hash(data.new_password)
+    db.commit()
+    return {"message": "Password reset successfully"}
